@@ -1,2 +1,2 @@
-# Waveforms
+# GW Waveforms
 
