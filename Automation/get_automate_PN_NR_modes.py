@@ -16,7 +16,7 @@ T_for_RigRot, T_Hybrid_Interval_Start, T_Hybrid_Interval_End = -0.7, -0.7, -0.3
 DISTANCE=300*megaparsec
 MASS = 70 * msun
 
-################## Get PN modes from sxs  ################ 
+################## Get NR modes from sxs  ################ 
 
 waveformnumber = opts.waveformnumber
 #get_modes_from_sxs(waveformnumber, MASS=70, DISTANCE=300*megaparsec)
@@ -24,7 +24,7 @@ waveformnumber = opts.waveformnumber
 
 
 
-#################### Get NR mode #############
+#################### Get PN modes #############
 # we will implement automation by using argparser for parameters but below  
 
 
