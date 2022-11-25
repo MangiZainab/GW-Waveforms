@@ -1,3 +1,6 @@
+#Given SXS waveform name this code generates PN and NR waveform modes
+
+
 #python get_automate_PN_NR_modes.py --waveformnumber 0123
 
 import numpy as np
@@ -25,18 +28,12 @@ get_modes_from_sxs(waveformnumber, MASS=70, DISTANCE=300*megaparsec)
 
 
 #################### Get NR mode #############
-# we will implement automation by using argparser for parameters but below  
-
-
-
-
 metadata = sxs.load("SXS:BBH:"+waveformnumber+"/Lev/metadata.json")
 qratio = metadata["reference_mass_ratio"]
 Mtotal = 70
 spin1 = metadata["reference_dimensionless_spin1"]
 spin2 = metadata["reference_dimensionless_spin2"]
 forb = metadata["reference_orbital_frequency"]
-
 fmag = np.linalg.norm(forb)
 frefHz = get_fref(fmag,70)
 fmin = frefHz
