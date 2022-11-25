@@ -10,7 +10,14 @@ from waveform_utils import Rescale_data_in_Total_Mass
 #from waveform_utils import RescaleTimes
 import sxs
 import lal 
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--waveformnumber", type=str, help="waveform number")
+opts = parser.parse_args() 
+ 
+
+waveformnumber = opts.waveformnumber
 
 
 def plot_freq(T, Z, M1, M2,t1, t2):
@@ -61,18 +68,19 @@ def get_fref(f, Mtot):
     MsunInSec = lal.MSUN_SI*lal.G_SI/lal.C_SI**3
     return f / (MsunInSec * Mtot)/np.pi
 
-waveformnumber = "0123"
 metadata = sxs.load("SXS:BBH:"+waveformnumber+"/Lev/metadata.json")
 forb = metadata["reference_orbital_frequency"]
 
 
 
-#compute fref through orbital frequency from metadata file
+#compute fref through orbital frequency from metadata.json file
 fmag = mag(forb[0], forb[1],forb[2])
 fref = get_fref(fmag,70)
 print(fref)
 
 #compute freq of NR waveform for 22mode
+#for this you need to have data file for SXS22 mode in your directory
+
 d = np.loadtxt("SXS22").T
 t,Z = d[0],d[1]+ d[2]*1j
 
