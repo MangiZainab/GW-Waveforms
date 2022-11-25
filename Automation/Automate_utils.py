@@ -479,17 +479,17 @@ def get_hyb_modes(T_NR, hlm_NR, T_MD, hlm_MD, Angles_NR, Angles_MD, t0, phi0, ps
 def plot_hlm(l,m,t1, Re1, img1, t2, Re2, img2):
 
     plt.figure(figsize=(11,4))
-    plt.plot(t1,Re1,'k',label ='{0}{1}'.format(l,m))
-    plt.plot(t2,Re2, 'r--')
+    plt.plot(t1,Re1,'k',label = "RigidrotatedNR_real{0}{1}".format(l,m))
+    plt.plot(t2,Re2, 'r--',label = "RigidrotatedshiftedMD_real{0}{1}".format(l,m))
     plt.legend()
-    plt.axvline(x= -1.6,color='orange')
-    plt.axvline(x= -0.8,color='orange')
+    plt.axvline(x= -0.7,color='orange')
+    plt.axvline(x= -0.3,color='orange')
     plt.figure(figsize=(11,4))
-    plt.plot(t1,img1,'k',label ='{0}{1}'.format(l,m))
-    plt.plot(t2,img2, 'r--')
+    plt.plot(t1,img1,'k',label = "RigidrotatedNR_imag{0}{1}".format(l,m))
+    plt.plot(t2,img2, 'r--',label = "RigidrotatedshiftedMD_imag{0}{1}".format(l,m))
     plt.legend()
-    plt.axvline(x= -1.6,color='orange')
-    plt.axvline(x= -0.8,color='orange')
+    plt.axvline(x= -0.7,color='orange')
+    plt.axvline(x= -0.3,color='orange')
 
     plt.show()
 
