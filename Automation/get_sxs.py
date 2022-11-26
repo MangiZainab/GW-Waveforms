@@ -54,16 +54,16 @@ def get_modes_from_sxs(waveformnumber, MASS=70, DISTANCE=300*megaparsec):
     #get sliced data after junk
     w_sliced = w[index_junk_end:]
     time = w_sliced.t
-    print(len(time), len(w_sliced[:, w_sliced.index(2, 2)])) #.data.view(float)))
+    #print(len(time), len(w_sliced[:, w_sliced.index(2, 2)])) #.data.view(float)))
     time_sec = GeometricTime_To_MKS_Time(time, MASS)
     h22 = w_sliced[:, w_sliced.index(2, 2)] #.data.view(float)
-    print(len(time_sec), len(h22))
+    #print(len(time_sec), len(h22))
     #quit()
     real22, imag22 = h22.real, h22.imag
     newreal22 = GeometricStrain_TO_Observer_Strain(real22, MASS, DISTANCE)
     newimag22 = GeometricStrain_TO_Observer_Strain(imag22, MASS, DISTANCE)
     max_amp_indx = np.argmax(np.absolute( newreal22 +  newimag22 *1j ))
-    print(max_amp_indx)
+    #print(max_amp_indx)
     #quit()
     #Tshift using 22
     tshift = time_sec[max_amp_indx]
@@ -77,7 +77,7 @@ def get_modes_from_sxs(waveformnumber, MASS=70, DISTANCE=300*megaparsec):
         for m in range(-l, l+1):
             hlmZ = w_sliced[:, w_sliced.index(l, m)] #.data.view(float)
             phys_real = GeometricStrain_TO_Observer_Strain(hlmZ.real, MASS, DISTANCE)       
-            print(len(phys_real), len(time_sec))
+            #print(len(phys_real), len(time_sec))
             #quit()
             NewRe = np.interp(Tarray, time_sec, phys_real)
             phys_imag = GeometricStrain_TO_Observer_Strain(hlmZ.imag, MASS, DISTANCE)
