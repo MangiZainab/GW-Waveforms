@@ -19,16 +19,13 @@ MASS = 70 * msun
 ################## Get NR modes from sxs  ################ 
 
 waveformnumber = opts.waveformnumber
-#get_modes_from_sxs(waveformnumber, MASS=70, DISTANCE=300*megaparsec)
+get_modes_from_sxs(waveformnumber, MASS=70, DISTANCE=300*megaparsec)
 
 
 
 
 #################### Get PN modes #############
-# we will implement automation by using argparser for parameters but below  
-
-
-
+  
 
 metadata = sxs.load("SXS:BBH:"+waveformnumber+"/Lev/metadata.json")
 qratio = metadata["reference_mass_ratio"]
@@ -41,7 +38,7 @@ fmag = np.sqrt(forb[0]**2+forb[1]**2+forb[2]**2) #np.linalg.norm(forb)
 frefHz = get_fref(fmag,70)
 fmin = frefHz
 
-#hlm_modes_given_param(qratio, Mtotal, spin1[0], spin1[1], spin1[2], spin2[0], spin2[1], spin2[2], frefHz, fmin, approximant='SpinTaylorT4', lmax=4, dist=300, model_name='PN')
+hlm_modes_given_param(qratio, Mtotal, spin1[0], spin1[1], spin1[2], spin2[0], spin2[1], spin2[2], frefHz, fmin, approximant='SpinTaylorT4', lmax=4, dist=300, model_name='PN')
 
 
 
